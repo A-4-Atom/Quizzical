@@ -1,0 +1,14 @@
+{
+    "hosting": {
+      "site": "myquizzical",
+      "public": "dist",
+      "ignore": [],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  }
+  
