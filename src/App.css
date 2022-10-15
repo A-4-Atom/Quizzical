@@ -133,7 +133,7 @@ button {
 .check-answer {
   background-color: #4d5b9e;
   height: 40px;
-  color: #FFF;
+  color: #fff;
 }
 
 .loader {
@@ -143,12 +143,12 @@ button {
   display: inline-block;
   position: relative;
   border: 3px solid;
-  border-color: #4D5B9E #4D5B9E transparent;
+  border-color: #4d5b9e #4d5b9e transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 }
 .loader::after {
-  content: '';  
+  content: "";
   box-sizing: border-box;
   position: absolute;
   left: 0;
@@ -157,7 +157,7 @@ button {
   bottom: 0;
   margin: auto;
   border: 3px solid;
-  border-color: transparent #FF3D00 #FF3D00;
+  border-color: transparent #ff3d00 #ff3d00;
   width: 24px;
   height: 24px;
   border-radius: 50%;
@@ -172,8 +172,8 @@ button {
   100% {
     transform: rotate(360deg);
   }
-} 
-    
+}
+
 @keyframes rotationBack {
   0% {
     transform: rotate(0deg);
@@ -183,11 +183,32 @@ button {
   }
 }
 
-.loader-container{
+.loader-container {
   width: 100vw;
   height: 800px;
   display: grid;
   place-items: center;
+}
+
+.normal-button:hover {
+  background-color: #d6dbf5;
+  border: 0.794239px solid #d6dbf5;
+  transform: scale(1.1);
+  transition: all 0.3s ease-out;
+}
+
+.check-answer:hover {
+  color: #293264;
+  background-color: #fff;
+  transform: scale(1.1);
+  transition: all 0.3s ease-out;
+}
+.openingpage-container > button:hover {
+  color: #293264;
+  background-color: #fff;
+  transform: scale(1.1);
+  border: 3px solid #293264;
+  transition: all 0.3s ease-out;
 }
 
 /* Media Query for Mobile Support */
@@ -195,22 +216,22 @@ button {
   .question {
     width: 330px;
   }
-  .question-title{
+  .question-title {
     font-size: 1rem;
     margin-left: 15px;
     margin-right: 15px;
   }
-  .questions-container{
+  .questions-container {
     margin-left: 15px;
     margin-right: 15px;
   }
-  .answer-button-container{
+  .answer-button-container {
     margin-bottom: 20px;
   }
-  .loader-container{
+  .loader-container {
     height: 300px;
   }
-  button{
+  button {
     font-size: 0.8rem;
   }
 }

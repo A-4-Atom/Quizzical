@@ -9,6 +9,7 @@ export default function Question(props) {
             id={props.selectedAnswer === option.choice ? "selected" : ""}
             key={option.id}
             onClick={() => props.handleButtonClick(option.choice, props.id)}
+            className="normal-button"
           >
             {option.choice}
           </button>
@@ -48,4 +49,3 @@ export default function Question(props) {
       </div>
     );
   }
-  
