@@ -1,6 +1,7 @@
 import blobTop from "../assets/blobTop.svg";
 import blobBottom from "../assets/blobBottom.svg";
 export default function OpeningPage(props) {
+  console.log("Developed & Designed by Vikas Chauhan");
   return (
     <div className="openingpage-container">
       <h1>Quizzical</h1>

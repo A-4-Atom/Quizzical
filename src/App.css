@@ -189,8 +189,6 @@ button {
   display: grid;
   place-items: center;
 }
-    
-
 
 /* Media Query for Mobile Support */
 @media only screen and (max-width: 768px) {
@@ -201,7 +199,6 @@ button {
     font-size: 1rem;
     margin-left: 15px;
     margin-right: 15px;
-
   }
   .questions-container{
     margin-left: 15px;
@@ -217,4 +214,3 @@ button {
     font-size: 0.8rem;
   }
 }
-

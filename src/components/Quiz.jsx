@@ -11,7 +11,7 @@ export default function Quiz() {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [isChecked, setIsChecked] = useState(false);
   const [restartGame, setRestartGame] = useState(false);
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(false);
 
   function stateSetter(data) {
     //Returns proper object for questions state
@@ -41,18 +41,16 @@ export default function Quiz() {
   }
 
   useEffect(() => {
-    setLoading(true)
+    setLoading(true);
     fetch("https://opentdb.com/api.php?amount=5&type=multiple")
       .then((res) => res.json())
       .then((data) => {
         stateSetter(data.results);
-        setLoading(false)
+        setLoading(false);
       });
-    console.log("Developed & Designed by Vikas Chauhan");
   }, [restartGame]);
 
   function handleButtonClick(choice, id) {
-    // console.log(choice, id);
     setQuestions((question) =>
       question.map((item) => {
         if (item.id === id) {
@@ -84,15 +82,13 @@ export default function Quiz() {
       if (questions[i].correctAnswer === questions[i].selectedAnswer) {
         count++;
       } else if (questions[i].selectedAnswer === "") {
-        // console.log("Answer all questions.");
         checker = false;
         count = 0;
         break;
       }
     }
-    //Setting Correct no. of answers
+    //Setting Correct no. of answers and isChecked to true if all questions are checked
     setCorrectAnswers(count);
-    //Setting isChecked to true if all quesions are checked
     setIsChecked(checker);
   }
 
@@ -102,23 +98,22 @@ export default function Quiz() {
     setIsChecked(false);
   }
 
-  if(loading){
-    return <Loader />
-  }
-  else{
-    return (
-      <div className="questions-container">
-        {questionElements}
-        <div className="answer-button-container">
-          <button className="check-answer" onClick={isChecked ? handlePlayAgain : checkAnswers}>
-            {isChecked ? "Play Again" : "Check Answers"}
-          </button>
-          {isChecked && <h1 className="answer">You Scored {correctAnswers}/5</h1>}
-        </div>
-        <img className="blob-top" src={blobTop} alt="" />
-        <img className="blob-bottom" src={blobBottom} alt="" />
+  return loading ? (
+    <Loader />
+  ) : (
+    <div className="questions-container">
+      {questionElements}
+      <div className="answer-button-container">
+        <button
+          className="check-answer"
+          onClick={isChecked ? handlePlayAgain : checkAnswers}
+        >
+          {isChecked ? "Play Again" : "Check Answers"}
+        </button>
+        {isChecked && <h1 className="answer">You Scored {correctAnswers}/5</h1>}
       </div>
-    );
-  }
-
+      <img className="blob-top" src={blobTop} alt="" />
+      <img className="blob-bottom" src={blobBottom} alt="" />
+    </div>
+  );
 }
